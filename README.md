@@ -1,2 +1,2 @@
 # -Mortgage-Loan-Portfolio-Risk-Analytics-Dashboard-Recreation-SQL-Reporting-
-This project involved recreating a real estate and mortgage loan risk dashboard that was originally built in Rivvit's Dasboard AI. Putting my own spin on it using Power BI, it required using a position/lot-level investment holdings dataset (v_pos_lot_wide) as the underlying data source.
+This project involved recreating a real estate and mortgage loan risk dashboard that was originally built in Rivvit's Dasboard AI where I worked as a Data Analyst intern. Putting my own spin on it using Power BI I also analyzed the datasource with SQL. This project was done with using a position/lot-level investment holdings dataset as the underlying data source.

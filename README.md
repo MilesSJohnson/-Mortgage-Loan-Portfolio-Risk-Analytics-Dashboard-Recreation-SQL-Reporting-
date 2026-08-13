@@ -1,6 +1,3 @@
-# -Mortgage-Loan-Portfolio-Risk-Analytics-Dashboard-Recreation-SQL-Reporting-
-This project involved recreating a real estate and mortgage loan risk dashboard that was originally built in Rivvit's Dasboard AI where I worked as a Data Analyst intern. Putting my own spin on it using Power BI I also analyzed the datasource with SQL. This project was done with using a position/lot-level investment holdings dataset as the underlying data source.
-
 # Real Estate Risk Dashboard & SQL Analysis
 
 A Power BI dashboard and SQL analysis project focused on real estate investment portfolio risk, covering **$446B+ in market value** across commercial mortgages, residential mortgages, and mezzanine loans.
@@ -36,61 +33,6 @@ The **Real Estate Risk Dashboard** provides an interactive view of key portfolio
 - **Occupancy, LTV, and DSCR by Property Type** — Compares performance across asset classes (Data Center, Multi-Family, Industrial, Retail, Hospitality, Office, etc.)
 - **Unrealized G/L by Issuer** — Ranks top gainers and losers including Federal National Mortgage Association, Federal Home Loan Mortgage Corp, and others
 - **Delinquency Tracking** — Monitors loan status from Current through 90+ Days Past Due and REO & Foreclosure
-
----
-
-## SQL Analysis
-
-The SQL analysis queries the underlying loan-level data to surface portfolio insights and risk signals.
-
-### Example Queries
-
-**Average LTV and DSCR by Region**
-```sql
-SELECT
-    Region,
-    AVG(LTV) AS Avg_LTV,
-    AVG(DSCR) AS Avg_DSCR,
-    COUNT(*) AS Loan_Count
-FROM Loans
-GROUP BY Region
-ORDER BY Avg_LTV DESC;
-```
-
-**Delinquency Summary by Loan Type**
-```sql
-SELECT
-    LoanType,
-    DelinquencyStatus,
-    COUNT(*) AS Loan_Count,
-    SUM(MarketValue) AS Total_Market_Value
-FROM Loans
-GROUP BY LoanType, DelinquencyStatus
-ORDER BY LoanType, Loan_Count DESC;
-```
-
-**Top Issuers by Unrealized Loss**
-```sql
-SELECT TOP 10
-    IssuerName,
-    SUM(UnrealizedGL) AS Total_Unrealized_GL,
-    SUM(MarketValue) AS Total_Market_Value
-FROM Loans
-GROUP BY IssuerName
-ORDER BY Total_Unrealized_GL ASC;
-```
-
-**Occupancy Rate by Property Type**
-```sql
-SELECT
-    PropertyType,
-    AVG(OccupancyRate) AS Avg_Occupancy,
-    AVG(LTV) AS Avg_LTV,
-    SUM(MarketValue) AS Total_Market_Value
-FROM Loans
-GROUP BY PropertyType
-ORDER BY Avg_Occupancy DESC;
-```
 
 ---
 
